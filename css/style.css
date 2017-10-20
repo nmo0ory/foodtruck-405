@@ -132,7 +132,7 @@ margin-top:20px;
     border: 3px solid #f1f1f1;
 }
 
-#login_page input[type=text], input[type=password] {
+#login_page input[type=text],#login_page input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -166,4 +166,45 @@ margin-top:20px;
 #login_page span.psw {
     float: right;
     padding-top: 16px;
+}
+
+#reg_page input[type=text],#reg_page input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+#reg_page button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+#reg_page .cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+#reg_page .cancelbtn,#reg_page .signupbtn {
+    float: left;
+    width: 50%;
+}
+#reg_page .container {
+    padding: 16px;
+}
+#reg_page .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+@media screen and (max-width: 300px) {
+    #reg_page .cancelbtn,#reg_page .signupbtn {
+       width: 100%;
+    }
 }
