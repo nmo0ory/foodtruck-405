@@ -208,3 +208,39 @@ margin-top:20px;
        width: 100%;
     }
 }
+#trk_profile_head{
+  border:solid 1px;
+  margin:10px
+}
+#trk_profile_head h2,#trk_profile_head h4{
+  text-align:center;
+}
+
+#trk_main{
+  padding-bottom:300px;
+}
+
+#trk_menu{
+  display:inline-block;
+  margin-right:10px;
+  float:left;
+  width: 45%;
+  
+}
+#trk_reviw{
+  display:inline-block;
+  float:right;
+  width: 45%;
+  padding-left:10px;
+  border-left:solid 1px;
+}
+.trk_user_rev{
+  border-bottom:solid 1px;
+  border-color:rgba(0,0,0,0.2);
+  margin: 5px;
+}
+#trk_map{
+  border:solid;
+  margin:20px;
+  padding:200px
+}
