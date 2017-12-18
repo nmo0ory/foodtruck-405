@@ -1,4 +1,4 @@
-<!DCTYPE Html>
+<!DCTYPE html>
 <html>
   
   <head>
@@ -12,17 +12,20 @@
       
       <div id="reg_page">
         <h2>SginUp</h2>
-          <form action="/action_page.php" style="border:1px solid #ccc">
+          <form action="/action_page.php" style="border:1px solid rgb#ccc">
             <div class="container">
               <label><b>Email</b></label>
-              <input type="text" placeholder="Enter Email" name="email" required>
-
+              <div id="divEmail">
+              <input type="text" placeholder="Enter Email" name="email" required onblur="emailValid(this);">
+            </div>
               <label><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
-
+              <div id="divPass">
+              <input type="password" placeholder="Enter Password" name="psw"  required onblur="passValid(this);">
+            </div>
               <label><b>Repeat Password</b></label>
-              <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-              <input type="checkbox" checked="checked"> Remember me
+              <div id="divRepeat">
+              <input type="password" placeholder="Repeat Password" name="pswRE" required onblur="repeatValid();">
+            </div>
               <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
               <div class="clearfix">
@@ -34,6 +37,56 @@
       </div>
       
     </div>
+    <script>
+      //cheack Email
+        var Email = document.createElement('div');
+        Email.appendChild(document.createTextNode("Please enter a valid Email Address"));
+        Email.style = "coloer: black ; border: 1px solid red ;  margin-bottom: 2px ; padding: 3px ; background-color: rgb(255, 220, 220) ; display: none "
+        document.getElementById("divEmail").appendChild(Email);
+        var emailValid = function(emailField){
+
+          var reg = /^([A-Za-z0-9-.])+@([A-Za-z0-9-.])+.([A-Za-z]{2,4})$/;
+
+        if (reg.test(emailField.value) == false) 
+        {
+           Email.style.display = "block"
+          return false;
+        }
+        Email.style.display = "none"
+        return true;
+}
+
+      //check password
+      var Pass = document.createElement('div');
+      Pass.appendChild(document.createTextNode("Please enter a valid Password"));
+      Pass.style = "coloer: black ; border: 1px solid red ;  margin-bottom: 2px ; padding: 3px ; background-color: rgb(255, 220, 220) ; display: none "
+      document.getElementById("divPass").appendChild(Pass);
+      var passValid = function(passField){   
+          var passw= /^(?=.*\d).{8,16}$/;  
+          if(passw.test(passField.value) == false)   
+          {    
+          Pass.style.display = "block" 
+          return false;  
+          }  
+          Pass.style.display = "none"
+          return true;  
+        }
+
+      //Repat Password
+      var repeat = document.createElement('div');
+      repeat.appendChild(document.createTextNode("Password is not Matching..!"));
+      repeat.style = "coloer: black ; border: 1px solid red ;  margin-bottom: 2px ; padding: 3px ; background-color: rgb(255, 220, 220) ; display: none "
+      document.getElementById("divRepeat").appendChild(repeat);
+      var repeatValid = function(){   
+          if( document.querySelector("input[name=psw]").value !== document.querySelector("input[name=pswRE]").value)   
+          {    
+            repeat.style.display = "block" 
+            return false;  
+          }  
+          repeat.style.display = "none"
+          return true;  
+        }
+        </script>
   </body>
-  
+
 </html>
